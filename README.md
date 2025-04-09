@@ -4,12 +4,19 @@
  - `plotly_cheatsheet.pdf`: a collection of Plotly visualization preferences.
  - `vis_guide.md`: a markdown file that serves as a guide for LLMs to generate visualizations using Plotly.
 
-The content of `vis_guide.md` be copied into the `.cursorrules` files to provide visualization context for LLMs without the need to manually instruct it every session.
-Edit the file to customize it for your specific needs and preferences, note that in the *restrictions* section, there are hard-coded values that you may want to change.
+You can use `vis_guide.md` in two ways:
+
+1. Copy the content of the file to `.cursorrules`. This will provide visualization context for LLMs without the need to manually instruct it every session. 
+2. Tag the file with `@vis_guide.md` in your prompt. This will provide the LLM with the context of the file for that specific session. This is outlined in the example below.
+
+
+*Note*: edit the file to customize it for your specific needs and preferences, for example the *Limitations* section contains hard-coded values that you may want to change.
+
+<br>
 
 ## Sample Prompt
 
-"""
+```
 Write a Python script to perform Exploratory Data Analysis (EDA) on the Titanic dataset (`data/train.csv`).  
 
  - The target variable is `Survived`.
@@ -18,8 +25,7 @@ Write a Python script to perform Exploratory Data Analysis (EDA) on the Titanic 
  - The script should follow the structure and recommendations of @vis_guide.md
  - Include univariate, bivariate, and multivariate visualizations where appropriate.
  - Include print statements summarizing insights after each plot.
- """
-
+ ```
 
  ## Outputs
 
