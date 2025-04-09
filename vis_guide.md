@@ -30,8 +30,8 @@ This document provides guidelines for selecting appropriate graph types in Plotl
        * Use: Comparing a quantitative measure across different categories.
        * Plotly Graph(s):
            * `Histogram` appropriate for discrete variable with a maximum of 3 categories. in case of higher cardinality use `Box plot` or `Violin plot`
-           * `Box plot`: appropriate for discrete variable with a maximum of 7 categories. in case of higher cardinality collect the top 6 and the rest as "others"
-           * `Violin plot`: appropriate for discrete variable with a maximum of 7 categories. in case of higher cardinality collect the top 6 and the rest as "others"
+           * `Box plot` appropriate for discrete variable with a maximum of 7 categories. in case of higher cardinality collect the top 6 and the rest as "others"
+           * `Violin plot` appropriate for discrete variable with a maximum of 7 categories. in case of higher cardinality collect the top 6 and the rest as "others"
 
    * **2.4 Spatial Data (Latitude, Longitude)**
 
@@ -48,28 +48,29 @@ This document provides guidelines for selecting appropriate graph types in Plotl
            * `Box plot` 
            * `Violin plot`
 
-   * **2.6 Two Discrete Variables**
+    * **2.6 One Discrete Variable**
+
+       * Use: Showing the distribution of a single categorical measure.
+       * Plotly Graph(s):
+           * `Histogram` appropriate for discrete variable with a maximum of 7 categories. in case of higher cardinality collect the top 6 and the rest as "others"
+           * `Pie chart` appropriate for discrete variable with a maximum of 20 categories. in case of higher cardinality collect the top 19 and the rest as "others"
+
+   * **2.7 Two Discrete Variables**
 
        * Use: Showing the relationship between two categorical measures.
        * Plotly Graph(s):
            * `Count plot`
            * `Stacked bar chart`
 
-   * **2.7 Three or More Variables**
+   * **2.8 Three or More Variables**
 
        * Use: Showing relationships between multiple variables.
        * Plotly Graph(s):
-           * You can often use visual aesthetics (color, size, shape) in other plot types (e.g., scatter plot) to represent a third continuous or discrete variable[cite: 5, 9].
-           * `3D Scatter Plot` (for three continuous variables).
-           * `Contour plots` (for 2 continuous and one derived continuous variable)[cite: 13].
+           * You can often use visual aesthetics (color, size, shape) in other plot types (e.g., scatter plot) to represent a third continuous or discrete variable
+           * `3D Scatter Plot` (for three continuous variables)
+           * `Contour plots` (for 2 continuous and one derived continuous variable)
 
-**3.  Important Plotly Concepts**
-
-   * **Traces:** In Plotly, data for each plot is contained in a "trace."
-   * **Layout:** The layout object controls the non-data parts of the figure, like titles, axes labels, and legends.
-   * **Figures:** A Plotly Figure is the combination of data (traces) and layout.
-
-**4.  Example Code Snippets (Illustrative - Adapt to Your Data)**
+**3.  Example Code Snippets (Illustrative - Adapt to Your Data)**
 
 ```python
 import plotly.express as px
@@ -91,8 +92,8 @@ fig = px.scatter_geo(data, lat="latitude", lon="longitude", title="Geospatial Pl
 fig.show()
 ```
 
-**5.  Limitations**
+**4.  Limitations**
 
    * **Data Size:** always plot a maximum of 10K data points, if the data is larger than that, use random sampling
-
+   * **Cardinality:** for categorical variables, if the cardinality is too high, follow the guidelines above to ensure plot readability
 
