@@ -123,3 +123,28 @@ fig.show()
    * **Data Size:** always plot a maximum of 10K data points, if the data is larger than that, use random sampling
    * **Cardinality:** for categorical variables, if the cardinality is too high, follow the guidelines above to ensure plot readability
 
+
+## 5. Pitfalls
+
+**Avoid Using the default output of `value_counts().reset_index()`**
+
+Use Plotly Express's built-in aggregation by passing the categorical column directly to `x` (or `y`). This is the most concise and error-proof approach.
+
+```python
+import plotly.express as px
+
+# Recommended: Let Plotly Express count occurrences automatically
+fig = px.bar(df, x="species", title="Species Count")
+fig.show()
+```
+
+If you need to pre-aggregate (e.g., for custom sorting or additional calculations),  
+always rename the columns to meaningful names before plotting
+
+```python
+species_counts = df['species'].value_counts().reset_index()
+species_counts.columns = ['species', 'count']
+
+fig = px.bar(species_counts, x='species', y='count', title="Species Count")
+fig.show()
+```
