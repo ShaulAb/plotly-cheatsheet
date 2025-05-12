@@ -82,3 +82,15 @@ fig = px.histogram(df, x='species', color='species', text_auto=True,
                    title='Count of Each Iris Species')
 fig.show()
 ```
+
+![Distribution Plot #1](assets/distplot1.png)
+
+![Distribution Plot #2](assets/distplot2.png)
+
+![Distribution Plot #3](assets/distplot3.png)
+
+![Distribution Plot #4](assets/distplot4.png)
+
+![Multidimensional Scatter](assets/scatter_matrix.png)
+
+![Correlation plot](assets/corrplot.png)
